@@ -1,0 +1,44 @@
+{
+	"server": {
+		"port": 5050
+	},
+	"log": {
+		"dirPath": "./storage/log"
+	},
+	"locales": {
+		"locales": ["en", "pl"],
+		"defaultLocale": "en"
+	},
+	"session": {
+		"secretKeys": [
+			"128c1f2a0dc8b172d1530a4371a36fa2",
+			"6f2b624e34f83af2ae36d956ccd6d88b"
+		],
+		"maxAge": 43200000
+	},
+	"database": {
+		"driver": "configuration"
+	},
+	"editor": {
+		"dirPath": "./editor/dist/t3mpl-editor"
+	},
+	"generator": {
+		"tempDirPatch": "./storage/temp",
+		"maxArtefactLifetime": 120000
+	},
+	"websites": [
+		{
+			"name": "boilerplate",
+			"owner": "admin",
+			"templateDirPath": "./websites/boilerplate/template",
+			"dataDirPath": "./websites/boilerplate/data",
+			"releaseDirPath": "./websites/boilerplate/release"
+		}
+	],
+	"users": [
+		{
+			"name": "admin",
+			"hashedPassword": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"
+		}
+	]
+}

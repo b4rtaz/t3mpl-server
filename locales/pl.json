@@ -1,0 +1,16 @@
+{
+	"langCode": "pl",
+
+	"header.logout": "Wyloguj się",
+
+	"login.login": "Zaloguj się",
+	"login.invalidUserOrPassword": "Nazwa użytkownika albo hasło jest nieprawidłowe.",
+	"login.username": "Użytkownik",
+	"login.enterUsername": "Wprowadź nazwę użytkownika",
+	"login.password": "Hasło",
+	"login.enterPassword": "Wprowadź hasło",
+	"login.rememberMe": "Zapamiętaj mnie",
+
+	"websites.websites": "Strony",
+	"websites.edit": "Edytuj"
+}

@@ -1,0 +1,49 @@
+
+/* reset */
+
+html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, input, select, button, iframe, textarea, dl, dt, dd {margin: 0; padding: 0; border: 0; outline: 0;}
+ul {list-style-type: none;}
+a {text-decoration: none;}
+
+body, input, select, option, button, h1, h3 {font: 13px/1.3em 'Open Sans', 'Helvetica Neue', Arial, Tahoma, Verdana, Serif; font-weight: normal;}
+input[type=submit] {cursor: pointer;}
+
+/* main */
+
+body {color: #FFF; background: #161616;}
+a {color: #FFF; text-decoration: none;}
+a:hover {text-decoration: underline;}
+
+.btn {display: inline-block; padding: 8px 15px; color: #FFF; background: #606060; text-decoration: none !important; transition: background-color 0.15s linear;}
+.btn:hover {background: #7A7A7A;}
+
+header {background: #272727;}
+header div.container {display: table; margin: 0 auto; padding: 0 15px; box-sizing: border-box; width: 100%; max-width: 600px;}
+header div.container div.logo {display: table-cell; padding: 15px 0;  vertical-align: middle;}
+header div.container div.logo h1 {font-size: 20px; line-height: 1.3em; font-weight: bold;}
+header div.container div.logo h1 sup {font-weight: normal; font-size: 12px; line-height: 1em;}
+header div.container div.session {display: table-cell; vertical-align: middle; text-align: right;}
+header div.container div.session strong.user-name {margin: 0 8px;}
+
+footer {padding: 15px 0; margin: 0 auto; width: 100%; max-width: 600px; text-align: center; border-top: 1px solid #272727;}
+footer, footer a {color: #454545;}
+
+.panel {max-width: 600px; margin: 20px auto;}
+.panel-header {padding: 15px 20px; background: #272727;}
+.panel-header h3 {font-weight: bold; font-size: 16px; line-height: 1.3em;}
+.panel-body {padding: 10px 20px; background: #303030;}
+
+form div.error-message {margin: 10px 0; padding: 10px; color: #000; background: #FFFF00;}
+form div.field {display: table; width: 100%; margin: 10px 0;}
+form div.field label {display: table-cell; width: 30%;}
+form div.field div.input {display: table-cell;}
+form div.field-no-label {padding-left: 30%; margin: 15px 0;}
+
+form input[type=text], .panel input[type=password] {width: 100%; box-sizing: border-box; padding: 10px; color: #FFF; background: #161616;}
+form input[type=checkbox] {vertical-align: middle;}
+
+ul.websites li {display: table; width: 100%; padding: 10px 0; box-sizing: border-box; border-top: 1px solid #434343;}
+ul.websites li:first-child {border-top: none;}
+ul.websites li span.details {display: table-cell; vertical-align: middle;}
+ul.websites li span.details h4 {font-size: 14px; line-height: 1.3em; font-weight: bold;}
+ul.websites li span.actions {display: table-cell; vertical-align: middle; text-align: right;}

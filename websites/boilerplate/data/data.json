@@ -1,0 +1,43 @@
+{
+    "meta": {
+        "name": "Boilerplate",
+        "version": 1,
+        "filePaths": [
+            "data.json",
+            "assets/favicon.png",
+            "assets/og-image.png"
+        ]
+    },
+    "configuration": {
+        "pagePathStrategy": "absolute"
+    },
+    "data": {
+        "PAGES": {
+            "PAGES": {
+                "PAGES": [
+                    {
+                        "TITLE": "Page",
+                        "FILE_PATH": null,
+                        "CONTENT": null
+                    }
+                ]
+            }
+        },
+        "COMMON": {
+            "META": {
+                "LANGUAGE": "en",
+                "DIRECTION": "auto",
+                "TITLE": "My Page Title",
+                "DESCRIPTION": "My Page Description",
+                "FAVICON": "assets/favicon.png",
+                "OG_IMAGE": "assets/og-image.png",
+                "PRE_HTML": null
+            },
+            "FOOTER": {
+                "COPYRIGHT": "All rights reserved",
+                "POWERED_BY": true,
+                "POST_HTML": null
+            }
+        }
+    }
+}

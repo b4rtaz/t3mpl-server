@@ -1,0 +1,36 @@
+
+<div class="panel">
+	<div class="panel-header">
+		<h3>{{__ 'login.login'}}</h3>
+	</div>
+	<div class="panel-body">
+		<form method="POST">
+			{{#if errorMessage}}
+			<div class="error-message">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+			<div class="field">
+				<label>{{__ 'login.username'}}</label>
+				<div class="input">
+					<input name="userName" type="text" value="{{userName}}" placeholder="{{__ 'login.enterUsername'}}" />
+				</div>
+			</div>
+			<div class="field">
+				<label>{{__ 'login.password'}}</label>
+				<div class="input">
+					<input name="password" type="password" placeholder="{{__ 'login.enterPassword'}}" />
+				</div>
+			</div>
+			<!--<div class="field-no-label">
+				<label>
+					<input type="checkbox" />
+					{{__ 'login.rememberMe'}}
+				</label>
+			</div>-->
+			<div class="field-no-label">
+				<input type="submit" class="btn" value="{{__ 'login.login'}}" />
+			</div>
+		</form>
+	</div>
+</div>

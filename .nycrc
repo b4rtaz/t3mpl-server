@@ -1,0 +1,22 @@
+{
+	"cache": false,
+	"check-coverage": true,
+	"extension": [
+		".ts"
+	],
+	"include": [
+		"src/**"
+	],
+	"exclude": [
+		"src/server.ts",
+		"**/*.spec.ts"
+	],
+	"sourceMap": true,
+	"reporter": [
+		"html",
+		"lcov"
+	],
+	"all": true,
+	"cache": false,
+	"instrument": true
+}

@@ -1,0 +1,16 @@
+{
+	"langCode": "en",
+
+	"header.logout": "Logout",
+
+	"login.login": "Login",
+	"login.invalidUserOrPassword": "Username or password is invalid.",
+	"login.username": "Username",
+	"login.enterUsername": "Enter username",
+	"login.password": "Password",
+	"login.enterPassword": "Enter password",
+	"login.rememberMe": "Remember me",
+
+	"websites.websites": "Websites",
+	"websites.edit": "Edit"
+}
