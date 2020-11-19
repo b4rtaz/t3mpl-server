@@ -3,10 +3,11 @@ import path from 'path';
 import { TEMPLATE_DATA_FILE_NAME, TEMPLATE_MANIFEST_FILE_NAME } from 't3mpl-core/core/constants';
 import { DataSerializer } from 't3mpl-core/core/data/data-serializer';
 import { PagesDataGenerator } from 't3mpl-core/core/data/pages-data-generator';
-import { exportRelease } from 't3mpl-core/core/exporter';
+import { Exporter } from 't3mpl-core/core/exporter';
 import { MemoryStorage } from 't3mpl-core/core/memory-storage';
 import { PagesResolver } from 't3mpl-core/core/pages-resolver';
 import { TemplateRenderer } from 't3mpl-core/core/renderer/template-renderer';
+import { UsedFilesScanner } from 't3mpl-core/core/scanners/used-files-scanner';
 import { ContentType } from 't3mpl-core/core/storage';
 import { TemplateManifestParser } from 't3mpl-core/core/template-manifest-parser';
 import { getFileExt, isTextFileExt } from 't3mpl-core/core/utils/path-utils';
@@ -27,13 +28,14 @@ export class ArtefactBuilder {
 		const templateStorage = StorageReader.readFiles(templateDirPath, manifest.meta.filePaths);
 		const contentStorage = StorageReader.readFiles(dataDirPath, data.meta.filePaths);
 
-		exportRelease(
+		Exporter.exportRelease(
 			manifest,
-			data.data,
+			data,
 			contentStorage,
 			templateStorage,
 			new PagesResolver(data.configuration.pagePathStrategy),
 			new TemplateRenderer(false, templateStorage, contentStorage, new PagesDataGenerator()),
+			new UsedFilesScanner(contentStorage),
 			(filePath, contentType, content) => {
 				StorageWriter.writeFile(buildDirPath, filePath, content, contentType);
 			});

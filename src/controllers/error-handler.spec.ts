@@ -1,24 +1,27 @@
+import { Request } from 'express';
 import winston from 'winston';
 
 import { UnauthorizedError } from '../auth/auth';
-import { mockNext, mockReqest, mockResponse } from '../core/request-mock';
+import { MockNext, mockNext, mockReqest, mockResponse } from '../core/request-mock';
 import { errorHandler } from './error-handler';
 import { NotFoundError } from './not-found-error';
 
 describe('errorHandler', () => {
 
 	let logErrorSpy: jasmine.Func;
+	let requestMock: Request;
+	let nextMock: MockNext;
 
 	beforeEach(() => {
 		logErrorSpy = spyOn(winston, 'error');
+		requestMock = mockReqest({});
+		nextMock = mockNext();
 	});
 
 	it('errorHandler() calls next() method when response has headers sent', () => {
-		const requestMock = mockReqest({});
 		const responseMock = mockResponse({
 			headersSent: true
 		});
-		const nextMock = mockNext();
 
 		errorHandler(new Error(), requestMock, responseMock, nextMock.mock);
 
@@ -28,9 +31,7 @@ describe('errorHandler', () => {
 	});
 
 	it('errorHandler() when Error passed returns 500 response, response message contains message from error', () => {
-		const requestMock = mockReqest({});
 		const responseMock = mockResponse({});
-		const nextMock = mockNext();
 
 		errorHandler(new Error('Some message.'), requestMock, responseMock, nextMock.mock);
 
@@ -41,9 +42,7 @@ describe('errorHandler', () => {
 	});
 
 	it('errorHandler() when error string passed returns 500 response, response container error text', () => {
-		const requestMock = mockReqest({});
 		const responseMock = mockResponse({});
-		const nextMock = mockNext();
 
 		errorHandler('ERR0R', requestMock, responseMock, nextMock.mock);
 
@@ -54,9 +53,7 @@ describe('errorHandler', () => {
 	});
 
 	it('errorHandler() returns 404 response for not found error', () => {
-		const requestMock = mockReqest({});
 		const responseMock = mockResponse({});
-		const nextMock = mockNext();
 
 		errorHandler(new NotFoundError('not found'), requestMock, responseMock, nextMock.mock);
 
@@ -67,9 +64,7 @@ describe('errorHandler', () => {
 	});
 
 	it('errorHandler() returns 404 response for not found error', () => {
-		const requestMock = mockReqest({});
 		const responseMock = mockResponse({});
-		const nextMock = mockNext();
 
 		errorHandler(new UnauthorizedError('unauthorized'), requestMock, responseMock, nextMock.mock);
 

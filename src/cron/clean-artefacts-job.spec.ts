@@ -24,6 +24,16 @@ describe('cleanArtefactsJob', () => {
 		expect(infoSpy).toHaveBeenCalled();
 	});
 
+	it('when cleaner returns 0 then logger is not called', () => {
+		const cleanerSpy = spyOn(ArtefactCleaner, 'clean').and.returnValue(0);
+		const infoSpy = spyOn(winston, 'info');
+
+		func();
+
+		expect(cleanerSpy).toHaveBeenCalled();
+		expect(infoSpy).not.toHaveBeenCalled();
+	});
+
 	it('when cleaner throws error then logger is called', () => {
 		const cleanerSpy = spyOn(ArtefactCleaner, 'clean').and.throwError(new Error('E0'));
 		const errorSpy = spyOn(winston, 'error');

@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/b4rtaz/t3mpl-server.svg?branch=master)](https://travis-ci.com/b4rtaz/t3mpl-server) [![Coverage Status](https://coveralls.io/repos/github/b4rtaz/t3mpl-server/badge.svg?branch=master)](https://coveralls.io/github/b4rtaz/t3mpl-server?branch=master) [![License: MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](/LICENSE) [![Twitter: b4rtaz](https://img.shields.io/twitter/follow/b4rtaz.svg?style=social)](https://twitter.com/b4rtaz)
-
 # T3MPL Server
+
+[![Build Status](https://travis-ci.com/b4rtaz/t3mpl-server.svg?branch=master)](https://travis-ci.com/b4rtaz/t3mpl-server) [![Coverage Status](https://coveralls.io/repos/github/b4rtaz/t3mpl-server/badge.svg?branch=master)](https://coveralls.io/github/b4rtaz/t3mpl-server?branch=master) [![License: MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](/LICENSE) [![Twitter: b4rtaz](https://img.shields.io/twitter/follow/b4rtaz.svg?style=social)](https://twitter.com/b4rtaz)
 
 This is the server for [T3MPL Editor](https://github.com/b4rtaz/t3mpl-editor). You can forget about .zip/.t3data/.t3mpl files. You may update your site directly from the editor.
 

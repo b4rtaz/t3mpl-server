@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-export function mockReqest<T extends Request>(args: MockArgsRequest) {
+export function mockReqest<T extends Request>(args: ArgsMockRequest): T {
 	return {
 		body: args.body,
 		params: args.params || {}
@@ -40,7 +40,7 @@ export function mockResponse(arg: {
 	return response;
 }
 
-export function mockNext() {
+export function mockNext(): MockNext {
 	let called = false;
 	return {
 		mock: () => {
@@ -50,7 +50,12 @@ export function mockNext() {
 	};
 }
 
-export interface MockArgsRequest {
+export interface MockNext {
+	mock: () => void;
+	called(): boolean;
+}
+
+export interface ArgsMockRequest {
 	body?: any;
 	params?: { [name: string]: string };
 }
