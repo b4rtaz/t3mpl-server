@@ -4,4 +4,4 @@
 /coverage/
 debug.log
 /.nyc_output/
-./configuration.json
+configuration.json

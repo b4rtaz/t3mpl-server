@@ -10,9 +10,9 @@ This is the server for [T3MPL Editor](https://github.com/b4rtaz/t3mpl-editor). Y
 
 `git clone https://github.com/b4rtaz/t3mpl-server.git`
 
-Run `install.sh`:
+Run `scripts/install.sh`:
 
-`bash install.sh`
+`bash scripts/install.sh`
 
 ## ⚡ How to Run
 
@@ -22,7 +22,7 @@ You need to build the server. The instruction is above. To start server, execute
 
 ## ⚙️ Configuration
 
-Everything is in `configuration.json` file. The server supports only that method for now.
+The server uses `configuration.json` file. This file will be created when you run `scripts/install.sh`. The server supports only that method for now.
 
 #### Session
 

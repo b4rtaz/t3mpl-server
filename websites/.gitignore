@@ -1,0 +1,6 @@
+*
+
+!.gitignore
+!boilerplate/
+!boilerplate/*
+!boilerplate/*/*
