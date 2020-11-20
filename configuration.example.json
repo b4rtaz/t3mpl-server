@@ -11,8 +11,8 @@
 	},
 	"session": {
 		"secretKeys": [
-			"128c1f2a0dc8b172d1530a4371a36fa2",
-			"6f2b624e34f83af2ae36d956ccd6d88b"
+			"<enter_here_session_secret_key_1>",
+			"<enter_here_session_secret_key_2>"
 		],
 		"maxAge": 43200000
 	},
