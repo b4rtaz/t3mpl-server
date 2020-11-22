@@ -119,9 +119,10 @@ describe('WriteWebsiteApiController', () => {
 				expect(templateDirPath).toEqual('./template');
 				called.build = true;
 			},
-			publish: (dataDirPath: string, releaseDirPath: string) => {
+			publish: (dataDirPath: string, releaseDirPath: string, keepReleaseFiles: string[]) => {
 				expect(dataDirPath).toEqual('./data');
 				expect(releaseDirPath).toEqual('./release');
+				expect(keepReleaseFiles).toContain('.gitignore');
 				called.publish = true;
 			},
 			clean: () => {
@@ -161,7 +162,8 @@ describe('WriteWebsiteApiController', () => {
 							owner: 'john',
 							dataDirPath: './data',
 							templateDirPath: './template',
-							releaseDirPath: './release'
+							releaseDirPath: './release',
+							keepReleaseFiles: ['.gitignore']
 						};
 					}
 					return null;

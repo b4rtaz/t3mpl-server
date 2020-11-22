@@ -52,6 +52,7 @@ export interface WebsiteConfiguration {
 	templateDirPath: string;
 	dataDirPath: string;
 	releaseDirPath: string;
+	keepReleaseFiles?: string[];
 }
 
 export interface UserConfiguration {

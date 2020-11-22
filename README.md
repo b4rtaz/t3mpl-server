@@ -26,17 +26,22 @@ The server uses `configuration.json` file. This file will be created when you ru
 
 #### Session
 
-This project uses [cookie session](https://github.com/expressjs/cookie-session#readme). This middleware does not require any database, but it requires secret keys to validate session cookies. **It is very important to set custom keys for each instance of server.** You may random that keys.
+This project uses [cookie session](https://github.com/expressjs/cookie-session#readme). This middleware does not require any database, but it requires secret keys to validate session cookies. **It is very important to set custom keys for each instance of server.**
 
 ```json
 "session": {
     "secretKeys": [
-        "128c1f2a0dc8b172d1530a4371a36fa2",
-        "6f2b624e34f83af2ae36d956ccd6d88b"
+        "<enter_session_secret_key_1_here>",
+        "<enter_session_secret_key_2_here>",
+        "<enter_session_secret_key_3_here>"
     ],
     "maxAge": 43200000
 }
 ```
+
+You can use `scripts/random-session-keys.js` to generate new keys.
+
+`node scripts/random-session-keys.js configuration.json`
 
 #### Users
 
@@ -65,6 +70,7 @@ Each user can have many websites.
 * `templateDirPath` - relative or absolute path to template directory, in this directory should be `template.yaml` file,
 * `dataDirPath` - relative or absolute path to data directory, in this directory should be `data.json` file,
 * `releaseDirPath` - relative or absolute path to release directory, the generator generates final website here.
+* `keepReleaseFiles` - the generator cleans the release dir before upload a new version, you can specify which files/directories should be kept in. This field doesn't support subdirectories.
 
 The server **must have** access to read/write provides directories.
 

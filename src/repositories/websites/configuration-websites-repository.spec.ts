@@ -13,9 +13,17 @@ describe('ConfigurationWebsitesRepository', () => {
 				{
 					name: 'blog',
 					owner: 'admin',
-					dataDirPath: './data',
-					templateDirPath: './template',
-					releaseDirPath: '/release'
+					dataDirPath: './blog/data',
+					templateDirPath: './blog/template',
+					releaseDirPath: './blog/release'
+				},
+				{
+					name: 'news',
+					owner: 'writer',
+					dataDirPath: './news/data',
+					templateDirPath: './news/template',
+					releaseDirPath: './news/release',
+					keepReleaseFiles: ['.gitignore']
 				}
 			]
 		} as Configuration;
@@ -23,13 +31,28 @@ describe('ConfigurationWebsitesRepository', () => {
 		repository = new ConfigurationWebsitesRepository(request);
 	});
 
-	it('tryGetWebsite() returns website from configuration', () => {
+	it('tryGetWebsite() returns correctly converted website', () => {
 		const website = repository.tryGetWebsite('admin', 'blog');
 
 		expect(website).toBeDefined();
 		expect(website.name).toEqual('blog');
 		expect(website.owner).toEqual('admin');
-		expect(website.dataDirPath).toEqual('./data');
+		expect(website.dataDirPath).toEqual('./blog/data');
+		expect(website.templateDirPath).toEqual('./blog/template');
+		expect(website.releaseDirPath).toEqual('./blog/release');
+		expect(Array.isArray(website.keepReleaseFiles)).toBeTrue();
+	});
+
+	it('tryGetWebsite() returns website from configuration', () => {
+		const website = repository.tryGetWebsite('writer', 'news');
+
+		expect(website).toBeDefined();
+		expect(website.name).toEqual('news');
+		expect(website.owner).toEqual('writer');
+		expect(website.dataDirPath).toEqual('./news/data');
+		expect(website.templateDirPath).toEqual('./news/template');
+		expect(website.releaseDirPath).toEqual('./news/release');
+		expect(website.keepReleaseFiles).toContain('.gitignore');
 	});
 
 	it('tryGetWebsite() returns null when when cannot find a website', () => {

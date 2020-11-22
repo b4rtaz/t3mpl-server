@@ -10,4 +10,5 @@ export interface Website {
 	templateDirPath: string;
 	dataDirPath: string;
 	releaseDirPath: string;
+	keepReleaseFiles?: string[];
 }

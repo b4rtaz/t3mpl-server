@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ArtefactBuilder } from './artefact-builder';
 import { ArtefactInfo } from './artefact-info';
 import { readArtefactInfo } from './artefact-info-reader';
+import { DirectoryCleaner } from './directory-cleaner';
 
 export class Artefact {
 
@@ -69,8 +70,10 @@ export class Artefact {
 		ArtefactBuilder.build(templateDirPath, this.dataDirPath, this.buildDirPath);
 	}
 
-	public publish(dataDirPath: string, releaseDirPath: string) {
+	public publish(dataDirPath: string, releaseDirPath: string, keepReleaseFiles: string[]) {
 		this.reaquireLoaded();
+
+		DirectoryCleaner.clean(releaseDirPath, keepReleaseFiles);
 
 		fsExtra.copySync(this.dataDirPath, dataDirPath);
 		fsExtra.copySync(this.buildDirPath, releaseDirPath);

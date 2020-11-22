@@ -5,6 +5,7 @@ import path from 'path';
 
 import { Artefact, ArtefactFactory } from './artefact';
 import { ArtefactBuilder } from './artefact-builder';
+import { DirectoryCleaner } from './directory-cleaner';
 
 describe('Artefact', () => {
 
@@ -32,7 +33,7 @@ describe('Artefact', () => {
 		const artefact = ArtefactFactory.create('./temp');
 		expect(() => artefact.build('./dist')).toThrowMatching(e);
 		expect(() => artefact.clean()).toThrowMatching(e);
-		expect(() => artefact.publish('./data', './dist')).toThrowMatching(e);
+		expect(() => artefact.publish('./data', './dist', [])).toThrowMatching(e);
 		expect(() => artefact.createDataWriteStream('template.yaml')).toThrowMatching(e);
 	});
 
@@ -99,16 +100,22 @@ describe('Artefact', () => {
 	it('publish() copies directories', () => {
 		mockFs(getDirMock());
 
+		let releaseCleanCalled = false;
 		let dataCopyCalled = false;
 		let buildCopyCalled = false;
+
+		const cleanSpy = spyOn(DirectoryCleaner, 'clean')
+			.withArgs(`./release`, ['.gitignore']).and.callFake(() => { releaseCleanCalled = true; });
 
 		const copySpy = spyOn(fsExtra, 'copySync')
 			.withArgs(`temp${path.sep}unique1${path.sep}data`, './data').and.callFake(() => dataCopyCalled = true)
 			.withArgs(`temp${path.sep}unique1${path.sep}build`, './release').and.callFake(() => buildCopyCalled = true);
 
 		const artefact = getArtefactMock();
-		artefact.publish('./data', './release');
+		artefact.publish('./data', './release', ['.gitignore']);
 
+		expect(cleanSpy).toHaveBeenCalledTimes(1);
+		expect(releaseCleanCalled).toBeTrue();
 		expect(copySpy).toHaveBeenCalledTimes(2);
 		expect(dataCopyCalled).toBeTrue();
 		expect(buildCopyCalled).toBeTrue();

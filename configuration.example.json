@@ -11,9 +11,9 @@
 	},
 	"session": {
 		"secretKeys": [
-			"<enter_here_session_secret_key_1>",
-			"<enter_here_session_secret_key_2>",
-			"<enter_here_session_secret_key_3>"
+			"<enter_session_secret_key_1_here>",
+			"<enter_session_secret_key_2_here>",
+			"<enter_session_secret_key_3_here>"
 		],
 		"maxAge": 43200000
 	},
@@ -33,7 +33,8 @@
 			"owner": "admin",
 			"templateDirPath": "./websites/boilerplate/template",
 			"dataDirPath": "./websites/boilerplate/data",
-			"releaseDirPath": "./websites/boilerplate/release"
+			"releaseDirPath": "./websites/boilerplate/release",
+			"keepReleaseFiles": [".gitignore"]
 		}
 	],
 	"users": [

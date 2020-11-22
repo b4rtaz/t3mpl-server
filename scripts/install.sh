@@ -12,9 +12,11 @@ rm -rf dist
 npm install
 npm run build
 
-echo "session keys..."
-cp -n configuration.example.json configuration.json
-node scripts/random-session-keys.js configuration.json
+if [ ! -f "configuration.json" ]; then
+	echo "session keys..."
+	cp configuration.example.json configuration.json
+	node scripts/random-session-keys.js configuration.json
+fi
 
 echo "t3mpl-editor..."
 rm -rf editor

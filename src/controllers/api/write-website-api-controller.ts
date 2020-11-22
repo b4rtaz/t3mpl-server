@@ -50,12 +50,11 @@ export class WriteWebsiteApiController {
 		artefact.load(request.auth.getUserName(), website.name, artefactId);
 
 		artefact.build(
-			website.templateDirPath
-		);
+			website.templateDirPath);
 		artefact.publish(
 			website.dataDirPath,
-			website.releaseDirPath
-		);
+			website.releaseDirPath,
+			website.keepReleaseFiles);
 		artefact.clean();
 
 		response.json({
