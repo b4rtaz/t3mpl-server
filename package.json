@@ -6,8 +6,8 @@
 	"scripts": {
 		"start": "tsc --watch",
 		"build": "tsc",
-		"serve:watch": "nodemon --watch dist dist/server.js",
-		"serve": "node dist/server.js",
+		"serve:dev": "nodemon --watch dist dist/server.js",
+		"serve:prod": "nodemon --watch configuration.json dist/server.js",
 		"test": "ts-node ./node_modules/jasmine/bin/jasmine --config=jasmine.json",
 		"coverage": "nyc npm run test",
 		"lint": "tslint --project tsconfig.json"

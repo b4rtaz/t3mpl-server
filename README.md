@@ -81,7 +81,8 @@ The server **must have** access to read/write provides directories.
         "owner": "admin",
         "templateDirPath": "./websites/boilerplate/template",
         "dataDirPath": "./websites/boilerplate/data",
-        "releaseDirPath": "./websites/boilerplate/release"
+        "releaseDirPath": "./websites/boilerplate/release",
+        "keepReleaseFiles": [".gitignore", "dirname"]
     }
 ]
 ```

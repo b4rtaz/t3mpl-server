@@ -8,7 +8,7 @@ case "$1" in
 			screen -dmS t3mpl_server sh
 			screen -S t3mpl_server -X stuff "cd ../
 "
-			screen -S t3mpl_server -X stuff "npm run serve
+			screen -S t3mpl_server -X stuff "npm run serve:prod
 "
 			echo "Server has started"
 		else
