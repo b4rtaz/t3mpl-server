@@ -1,6 +1,6 @@
 {
 	"name": "t3mpl-server",
-	"version": "0.4.1",
+	"version": "0.4.2",
 	"description": "Server of T3MPL.Editor.",
 	"main": "dist/server.js",
 	"scripts": {

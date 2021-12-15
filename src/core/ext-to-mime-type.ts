@@ -11,7 +11,8 @@ const MIME_TYPES = {
 	'.png': 'image/png',
 	'.jpg': 'image/jpeg',
 	'.jpeg': 'image/jpeg',
-	'.gif': 'image/gif'
+	'.gif': 'image/gif',
+	'.svg': 'image/svg+xml'
 };
 
 export function getMimeType(fileExt: string): string {
